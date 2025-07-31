@@ -64,23 +64,13 @@ jobs:
       fail-fast: true
       matrix:
         img:
-         - full
-         - customizable
-         - nodejs
-         - jruby94
-         - jruby93
-         # - ruby35 # REL: 2025-12-25
-         - ruby34 # EOL: 2028-03-31
-         - ruby33 # EOL: 2027-03-31
-         - ruby32 # EOL: 2026-03-31
-         # https://www.ruby-lang.org/en/downloads/branches/
-         # - python314 # REL: 2025-10-01
-         - python313 # EOL: 2029-10-07
-         - python312 # EOL: 2028-10-02
-         - python311 # EOL: 2027-10-24
-         - python310 # EOL: 2026-10-04
-         - python39  # EOL: 2025-10-05
-         # https://devguide.python.org/versions/
+          - full
+          - customizable
+          - nodejs
+          - ruby34 # EOL: 2028-03-31
+          - ruby33 # EOL: 2027-03-31
+          - python313 # EOL: 2029-10-07
+          - python312 # EOL: 2028-10-02
         arch:
           - name: amd64
             runner: ubuntu-24.04
