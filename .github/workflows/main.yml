@@ -42,7 +42,7 @@ jobs:
           BUILD_AMD64: ${{ fromJSON('[0, 1]')[matrix.arch.name == 'amd64'] }}
           BUILD_ARM64: ${{ fromJSON('[0, 1]')[matrix.arch.name == 'arm64'] }}
       - name: Log in to the Container registry
-        if: ${{ github.event.pull_request.merged || github.actor == 'CamJN' }}
+        if: ${{ github.event.pull_request.merged || github.actor == 'pzgz' }}
         uses: docker/login-action@v3
         id: login
         with:
@@ -91,7 +91,7 @@ jobs:
           BUILD_AMD64: ${{ fromJSON('[0, 1]')[matrix.arch.name == 'amd64'] }}
           BUILD_ARM64: ${{ fromJSON('[0, 1]')[matrix.arch.name == 'arm64'] }}
       - name: Log in to the Container registry
-        if: ${{ github.event.pull_request.merged || github.actor == 'CamJN' }}
+        if: ${{ github.event.pull_request.merged || github.actor == 'pzgz' }}
         uses: docker/login-action@v3
         id: login
         with:
