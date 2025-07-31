@@ -64,7 +64,6 @@ jobs:
       fail-fast: true
       matrix:
         img:
-          - full
           - customizable
           - nodejs
           - ruby34 # EOL: 2028-03-31
