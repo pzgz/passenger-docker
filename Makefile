@@ -6,7 +6,7 @@ else
 REGISTRY = docker.io
 endif
 
-NAME ?= $(REGISTRY)/phusion/passenger
+NAME ?= $(REGISTRY)/pzgz/passenger
 VERSION ?= 3.1.4
 
 # NAME and/or VERSION can be overriden during build if you are building locally to push to your own repository
@@ -134,10 +134,10 @@ cross_tag: $(foreach image, $(ALL_IMAGES), cross_tag_${image})
 
 cross_tag_%: FORCE
 ifeq ($(_build_amd64),1)
-	docker tag ghcr.io/phusion/passenger-$*:$(VERSION)-amd64 $(NAME)-$*:$(VERSION)-amd64
+	docker tag ghcr.io/pzgz/passenger-$*:$(VERSION)-amd64 $(NAME)-$*:$(VERSION)-amd64
 endif
 ifeq ($(_build_arm64),1)
-	docker tag ghcr.io/phusion/passenger-$*:$(VERSION)-arm64 $(NAME)-$*:$(VERSION)-arm64
+	docker tag ghcr.io/pzgz/passenger-$*:$(VERSION)-arm64 $(NAME)-$*:$(VERSION)-arm64
 endif
 
 tag_latest: $(foreach image, $(ALL_IMAGES), tag_latest_${image})
@@ -176,8 +176,8 @@ clean:
 	rm -rf *_image
 
 clean_images: $(foreach image, $(ALL_IMAGES), clean_image_${image}) FORCE
-	docker rmi $(NAME)-base:latest-amd64 phusion/passenger-base:latest-amd64 || true
-	docker rmi $(NAME)-base:latest-arm64 phusion/passenger-base:latest-arm64 || true
+	docker rmi $(NAME)-base:latest-amd64 pzgz/passenger-base:latest-amd64 || true
+	docker rmi $(NAME)-base:latest-arm64 pzgz/passenger-base:latest-arm64 || true
 
 clean_image_%: FORCE
 	docker rmi $(NAME)-$*:latest-amd64 $(NAME)-$*:$(VERSION)-amd64 || true
